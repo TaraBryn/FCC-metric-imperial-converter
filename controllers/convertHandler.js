@@ -8,7 +8,9 @@
 
 function ConvertHandler() {
   
-  this.getNum = input => input.match(/^\d+\.?\d*\/?\d*\.?\d*/)[0];
+  this.getNum = input => {
+    var matches = input.match(/^(\d+\.?\d*)\/?(\d*\.?\d*)/)
+  };
   
   this.getUnit = input => input.match(/(gal|L|lbs|kg|mi|km)$/)[0];
   
@@ -25,9 +27,15 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function(unit) {
-    var result;
-    
-    return result;
+    switch(unit){
+      case 'L': return 'liters';
+      case 'gal': return 'gallons';
+      case 'lbs': return 'pounds';
+      case 'kg': return 'kilograms';
+      case 'mi': return 'miles';
+      case 'km': return 'kilometers';
+      default: return '';
+    }
   };
   
   this.convert = function(initNum, initUnit) {
@@ -36,7 +44,7 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     
     switch (initUnit){
-        case
+      case 'L': return initNum
     }
   };
   
