@@ -10,6 +10,11 @@ function ConvertHandler() {
   
   this.getNum = input => {
     var matches = input.match(/^(\d+\.?\d*)\/?(\d*\.?\d*)/)
+    if ([1,3].indexOf(matches.length) == -1) return null;
+    if (matches.length == 1) return parseFloat(matches[0]);
+    matches.shift();
+    if (matches.indexOf('') != -1) return null;
+    return (parseFloat(matches[0])/parseFloat(matches[1])).toFixed(5)
   };
   
   this.getUnit = input => input.match(/(gal|L|lbs|kg|mi|km)$/)[0];
@@ -44,7 +49,9 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     
     switch (initUnit){
-      case 'L': return initNum
+      case 'L': return (initNum/galToL).toFixed(5);
+      case 'gal': return (initNum * galToL).toFixed(5);
+      case 'lbs': return (initNum * lbsToKg).toFixed(5);
     }
   };
   
