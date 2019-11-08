@@ -8,21 +8,12 @@
 
 function ConvertHandler() {
   
-  this.getNum = function(input) {
-    const unit = this.getUnit(input);
-    const numRegEx = /\d*/
-  };
+  this.getNum = input => input.match(/^\d+\.?\d*\/?\d*\.?\d*/)[0];
   
-  this.getUnit = function(input) {
-    var result;
-    
-    return result;
-  };
+  this.getUnit = input => input.match(/(gal|L|lbs|kg|mi|km)$/)[0];
   
   this.getReturnUnit = function(initUnit) {
-    var result;
-    
-    return result;
+    switch(this.getUnit.match)
   };
 
   this.spellOutUnit = function(unit) {
