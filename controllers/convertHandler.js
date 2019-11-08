@@ -9,9 +9,8 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    var result;
-    
-    return result;
+    const unit = this.getUnit(input);
+    const numRegEx = /\d*/
   };
   
   this.getUnit = function(input) {
