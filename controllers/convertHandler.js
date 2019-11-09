@@ -10,11 +10,22 @@ function ConvertHandler() {
   
   this.getNum = input => {
     var matches = input.match(/^(\d+\.?\d*)(\/?)(\d*\.?\d*)/)
-    console.log(matches);
-    if ()
+    if (matches.length == 0) return null;
+    if (matches[1] == matches[0]) return parseFloat(matches[0]);
+    try{ return (parseFloat(matches[1]) / parseFloat(matches[3])).toFixed(5); }
+    catch(e){
+      console.log(e);
+      return null;
+    }
   };
   
-  this.getUnit = input => input.match(/(gal|L|lbs|kg|mi|km)$/)[0];
+  this.getUnit = input =>{ 
+    try{return input.match(/(gal|L|lbs|kg|mi|km)$/)[0];}
+    catch(e){
+      console.log(e);
+      return null;
+    }
+  };
   
   this.getReturnUnit = function(initUnit) {
     switch(initUnit){
