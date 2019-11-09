@@ -22,8 +22,13 @@ module.exports = function (app) {
       var initUnit = convertHandler.getUnit(input);
       var returnNum = convertHandler.convert(initNum, initUnit);
       var returnUnit = convertHandler.getReturnUnit(initUnit);
-      var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       
+      
+      var init_units = convertHandler.spellOutUnits(initUnit);
+      var return_units = convertHandler.spellOutUnits(returnUnit);
+      var toString = convertHandler.getString(initNum, init_units, returnNum, return_units);
+      
+      return (!initNum || !initUnit) ? res.send(toString) : res.json(toString);
       //res.json
     });
     
