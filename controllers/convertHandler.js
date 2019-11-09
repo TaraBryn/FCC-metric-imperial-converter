@@ -52,6 +52,7 @@ function ConvertHandler() {
       case 'L': return (initNum/galToL).toFixed(5);
       case 'gal': return (initNum * galToL).toFixed(5);
       case 'lbs': return (initNum * lbsToKg).toFixed(5);
+      case 'kg': return (initNum / lbsToKg).toFixed(5);
     }
   };
   
