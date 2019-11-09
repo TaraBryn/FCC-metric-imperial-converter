@@ -53,13 +53,19 @@ function ConvertHandler() {
       case 'gal': return (initNum * galToL).toFixed(5);
       case 'lbs': return (initNum * lbsToKg).toFixed(5);
       case 'kg': return (initNum / lbsToKg).toFixed(5);
+      case 'mi': return (initNum * miToKm).toFixed(5);
+      case 'km': return (initNum / miToKm).toFind(5);
+      default: return null;
     }
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    var result;
-    
-    return result;
+    if (!initNum){
+      if (!initUnit) return 'invalid number and unit';
+      return 'invalid number';
+    }
+    if (!initUnit) return 'invalid unit';
+    return `${initNu`
   };
   
 }
